@@ -11,10 +11,13 @@ public class GameManager : MonoBehaviour {
 	const int PLAYER_1 = 1;
 	const int PLAYER_2 = 2;
 
+	private GameObject ball;
+
 
 	// Use this for initialization
 	void Start () {
-	
+		ball = GameObject.FindGameObjectWithTag ("Ball");
+
 	}
 	
 	// Update is called once per frame
@@ -33,7 +36,15 @@ public class GameManager : MonoBehaviour {
 
 	public void OnGUI (){
 		GUI.skin = scoreSkin;
-		GUI.Label (new Rect (Screen.width/2-150 -12,20,100,100),"" + player1Score);
-		GUI.Label (new Rect (Screen.width/2+150 -12,20,100,100),"" + player2Score);
+		GUI.Label (new Rect (Screen.width/2-150 -18,20,100,100),"" + player1Score);
+		GUI.Label (new Rect (Screen.width/2+150 -18,20,100,100),"" + player2Score);
+
+		if (GUI.Button (new Rect(Screen.width/2 - (121/2), 35, 121, 53), "RESET")) {
+			player1Score = 0;
+			player2Score = 0;
+			ball.SendMessage("resetBall");
+
+
+		}
 	}
 }

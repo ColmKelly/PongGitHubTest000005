@@ -48,7 +48,7 @@ public class BallControl : MonoBehaviour {
 		yield return new WaitForSeconds (waitTime);
 
 		float randomNumber = Random.Range (30,70);
-		Debug.Log (lastFiredSwitch);
+
 		if (lastFiredSwitch) {
 			randomNumber = -randomNumber;
 		}
